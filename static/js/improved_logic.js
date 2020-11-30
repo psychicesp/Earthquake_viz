@@ -1,7 +1,7 @@
 // Create a map object
 var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson"
 var myMap = L.map("map-id", {
-  center: [37.98, 23.72],
+  center: [1, 1],
   zoom: 2
 });
   // Magnitude is on a log10 scale, so a linear increase in radius wouldn't make sense
