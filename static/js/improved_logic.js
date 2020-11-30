@@ -18,9 +18,11 @@ d3.json(queryUrl, function (data) {
   console.log(data)
   var features = data.features
 
-  // Define a markerSize function that will give each city a different radius based on its population
+  // Magnitude is on a log10 scale, so a linear increase in radius wouldn't make sense
+  // But the increase already isn't linear, so circle size is adjusted magnitude deivided by area formula.
+  // This way an earthquate that is 10x worse will have a circle with 10x more area
   function markerSize(magnitude) {
-    return magnitude*25000;
+    return ((magnitude**10))/(3.14*magnitude**2);
   }
 
   // Loop through the cities array and create one marker for each city object
@@ -31,11 +33,13 @@ d3.json(queryUrl, function (data) {
     let coords = [lat,lon]
     let mag = feature.properties.mag
     let place = feature.properties.place
+    let radius = 
     L.circle(coords, {
-      fillOpacity: 0.6,
+      fillOpacity: 0.4,
       color: "white",
       fillColor: "purple",
+      weight: 1,
       radius: markerSize(mag)
-    }).bindPopup(`<h3>${place}<br>Magnitude:${mag}</h3>`).addTo(myMap);
+    }).bindPopup(`<h3>${place}<br>Magnitude: ${mag}</h3>`).addTo(myMap);
   })
 });
