@@ -2,7 +2,7 @@
 
 This assignments' intent was to visualize a set of earthquake data found [here](https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/4.5_month.geojson)
 
-Simply open index.html in a modern web browser or go to the Github Pages link [here](psychicesp.github.io/leaflet-challenge)
+Simply open index.html in a modern web browser or go to the Github Pages link [here](https://psychicesp.github.io/leaflet-challenge)
 
 (normally I would gitignore the config.js to hide the key from scrapers, but this is an old key with no risk and I wanted Github Pages to work)
 
